@@ -107,7 +107,7 @@ const AboutSection = () => {
                 </tr>
                 <tr>
                   <td className="px-4 py-3">Inglés</td>
-                  <td className="px-4 py-3">Intermedio</td>
+                  <td className="px-4 py-3">basico</td>
                 </tr>
               </tbody>
             </table>
