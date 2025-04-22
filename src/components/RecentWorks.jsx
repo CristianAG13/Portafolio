@@ -13,28 +13,37 @@ const projects = [
       projectLink: 'https://simadlsc.vercel.app',
       githubLink: 'https://github.com/CristianAG13/SIMADLSC',
     },
+    // {
+    //   title: 'Messenger',
+    //   description: 'Aplicación de mensajería en tiempo real con autenticación y chat privado.',
+    //   imageUrl: 'https://placehold.co/600x300?text=Messenger',
+    //   projectLink: 'https://github.com/CristianAG13/Messenger',
+    //   githubLink: 'https://github.com/CristianAG13/Messenger',
+    // },
+    // {
+    //   title: 'Tracker',
+    //   description: 'Sistema de seguimiento de tareas y productividad personal.',
+    //   imageUrl: 'https://placehold.co/600x300?text=Tracker',
+    //   projectLink: 'https://github.com/CristianAG13/Tracker',
+    //   githubLink: 'https://github.com/CristianAG13/Tracker',
+    // },
+    // {
+    //   title: 'Online Shopping',
+    //   description: 'Tienda en línea con carrito, pagos y gestión de productos.',
+    //   imageUrl: 'https://placehold.co/600x300?text=Ecommerce',
+    //   projectLink: 'https://github.com/CristianAG13/OnlineShop',
+    //   githubLink: 'https://github.com/CristianAG13/OnlineShop',
+    // },
+
     {
-      title: 'Messenger',
-      description: 'Aplicación de mensajería en tiempo real con autenticación y chat privado.',
-      imageUrl: 'https://placehold.co/600x300?text=Messenger',
-      projectLink: 'https://github.com/CristianAG13/Messenger',
-      githubLink: 'https://github.com/CristianAG13/Messenger',
-    },
-    {
-      title: 'Tracker',
-      description: 'Sistema de seguimiento de tareas y productividad personal.',
-      imageUrl: 'https://placehold.co/600x300?text=Tracker',
-      projectLink: 'https://github.com/CristianAG13/Tracker',
-      githubLink: 'https://github.com/CristianAG13/Tracker',
-    },
-    {
-      title: 'Online Shopping',
-      description: 'Tienda en línea con carrito, pagos y gestión de productos.',
-      imageUrl: 'https://placehold.co/600x300?text=Ecommerce',
-      projectLink: 'https://github.com/CristianAG13/OnlineShop',
-      githubLink: 'https://github.com/CristianAG13/OnlineShop',
-    },
+       title: 'FRONT-PARADIGMA',
+         description: 'FRONT-PARADIGMA es un proyecto base que configura un entorno mínimo para aplicaciones en React usando Vite como bundler. Incluye Hot Module Replacement (HMR) para desarrollo en tiempo real y ESLint con reglas básicas para mantener buenas prácticas de código. Está pensado como una plantilla ligera para arrancar proyectos React de forma rápida y eficiente.',
+         imageUrl: 'https://placehold.co/600x300?text=FRONT-PARADIGMA',
+         projectLink: 'https://github.com/CristianAG13/FRONT-PARADIGMA',
+         githubLink: 'https://github.com/CristianAG13/FRONT-PARADIGMA',
+       },
   ];
+  
 
 const RecentWorks = () => {
   return (
