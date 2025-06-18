@@ -9,39 +9,38 @@ const projects = [
       title: 'SIMADLSC',
       description:
         'Este proyecto fue desarrollado por mí, junto a un grupo de compañeros de Ingeniería en Sistemas de la Universidad Nacional, como una donación al Liceo de Santa Cruz. La institución contaba con un sistema obsoleto y con múltiples problemas de funcionamiento. Escogimos este liceo porque es parte de nuestra historia; muchos de nosotros fuimos estudiantes ahí, y nos sentimos profundamente orgullosos de poder retribuir con una solución tecnológica que ayude a mejorar su gestión académica.',
-      imageUrl: 'https://placehold.co/600x300?text=SIMADLSC',
+      imageUrl: 'simadlsc.jpg',
       projectLink: 'https://simadlsc.vercel.app',
       githubLink: 'https://github.com/CristianAG13/SIMADLSC',
     },
-    // {
-    //   title: 'Messenger',
-    //   description: 'Aplicación de mensajería en tiempo real con autenticación y chat privado.',
-    //   imageUrl: 'https://placehold.co/600x300?text=Messenger',
-    //   projectLink: 'https://github.com/CristianAG13/Messenger',
-    //   githubLink: 'https://github.com/CristianAG13/Messenger',
-    // },
-    // {
-    //   title: 'Tracker',
-    //   description: 'Sistema de seguimiento de tareas y productividad personal.',
-    //   imageUrl: 'https://placehold.co/600x300?text=Tracker',
-    //   projectLink: 'https://github.com/CristianAG13/Tracker',
-    //   githubLink: 'https://github.com/CristianAG13/Tracker',
-    // },
-    // {
-    //   title: 'Online Shopping',
-    //   description: 'Tienda en línea con carrito, pagos y gestión de productos.',
-    //   imageUrl: 'https://placehold.co/600x300?text=Ecommerce',
-    //   projectLink: 'https://github.com/CristianAG13/OnlineShop',
-    //   githubLink: 'https://github.com/CristianAG13/OnlineShop',
-    // },
-
     {
-       title: 'FRONT-PARADIGMA',
-         description: 'FRONT-PARADIGMA es un proyecto base que configura un entorno mínimo para aplicaciones en React usando Vite como bundler. Incluye Hot Module Replacement (HMR) para desarrollo en tiempo real y ESLint con reglas básicas para mantener buenas prácticas de código. Está pensado como una plantilla ligera para arrancar proyectos React de forma rápida y eficiente.',
-         imageUrl: 'https://placehold.co/600x300?text=FRONT-PARADIGMA',
-         projectLink: 'https://github.com/CristianAG13/FRONT-PARADIGMA',
-         githubLink: 'https://github.com/CristianAG13/FRONT-PARADIGMA',
-       },
+      title: 'SIMADLSC-backend',
+      description: 'Backend del Sistema de Matrícula, Asistencia y Disciplina del Liceo Santa Cruz (SIMADLSC). Desarrollado con NestJS y TypeORM, proporciona una API REST para gestionar matrículas, asistencias, eventos académicos, justificaciones de ausencias, horarios de profesores y estudiantes. Implementa un sistema completo para el manejo de la información académica y administrativa del centro educativo.',
+      imageUrl: 'https://placehold.co/600x300?text=SIMADLSC-backend',
+      projectLink: 'https://simadlsc.vercel.app',
+      githubLink: 'https://github.com/CristianAG13/SIMADLSC-backend',
+    },
+    {
+      title: 'API REST - Gestión de Usuarios',
+      description: 'API REST desarrollada en C# con ASP.NET Core para gestión de usuarios. Implementa autenticación basada en JWT, operaciones CRUD para usuarios con distintos roles, y arquitectura organizada por controladores. El sistema usa Entity Framework Core para la persistencia de datos y sigue las mejores prácticas en seguridad como protección de rutas y validación de solicitudes.',
+      imageUrl: 'https://placehold.co/600x300?text=API-REST-CS',
+      projectLink: 'https://github.com/CristianAG13/Api-Rest-Progra-IV',
+      githubLink: 'https://github.com/CristianAG13/Api-Rest-Progra-IV',
+    },
+    {
+      title: 'Gestor de Usuarios - React Admin',
+      description: 'Panel de administración desarrollado con React que permite la gestión completa de usuarios. Cuenta con funcionalidades como crear, actualizar y eliminar usuarios, sistema de login seguro con manejo de tokens JWT, y control de acceso por roles. La interfaz utiliza TailwindCSS y componentes de AntDesign para ofrecer una experiencia de usuario moderna y responsiva.',
+      imageUrl: 'https://placehold.co/600x300?text=React-Admin-Panel',
+      projectLink: 'https://github.com/CristianAG13/Proyecto-1-Progra-IV',
+      githubLink: 'https://github.com/CristianAG13/Proyecto-1-Progra-IV',
+    },
+    {
+      title: 'Login Moderno - React & TailwindCSS',
+      description: 'Interfaz de inicio de sesión moderna desarrollada con React y estilizada con TailwindCSS. Incluye validación de formularios, funcionalidad de "recordar usuario" y sistema de recuperación de contraseña. El diseño es completamente responsivo y adaptable a dispositivos móviles, con modo oscuro incluido y transiciones fluidas para mejorar la experiencia de usuario.',
+      imageUrl: 'https://placehold.co/600x300?text=Modern-Login',
+      projectLink: 'https://github.com/CristianAG13/Login-basico-react',
+      githubLink: 'https://github.com/CristianAG13/Login-basico-react',
+    },
   ];
   
 

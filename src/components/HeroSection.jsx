@@ -24,12 +24,12 @@ const HeroSection = () => {
           href="#about"
           className="inline-block mt-4 bg-transparent border border-green-400 text-green-400 px-6 py-2 rounded-lg hover:bg-green-500 hover:text-white transition"
         >
-          Conocer más
-        </a>
+          Conocer más        </a>
+        
         <a
   href="/CV_Cristian_Aguirre.pdf"
   download="CV_Cristian_Aguirre.pdf"
-  className="inline-block mt-4 bg-transparent border border-green-400 text-green-400 px-6 py-2 rounded-lg hover:bg-green-500 hover:text-white transition"
+  className="inline-block mt-4 ml-4 bg-green-400 text-black font-medium px-6 py-2 rounded-lg hover:bg-green-500 hover:text-white transition"
 >
   Descargar CV
 </a>
@@ -43,7 +43,7 @@ const HeroSection = () => {
         transition={{ duration: 0.8, delay: 0.4 }}
       >
         <img
-          src="https://placehold.co/300x300?text=Cristian"
+          src="WhatsApp Image 2025-06-11 at 18.27.05_8c45ea41.jpg"
           alt="Cristian Aguirre"
           className="w-full h-full object-cover"
         />
