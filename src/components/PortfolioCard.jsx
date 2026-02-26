@@ -1,40 +1,121 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { fadeUp, staggerContainer } from '../animations/fadeVariants';
+import { FaGithub, FaExternalLinkAlt, FaCode, FaEye } from 'react-icons/fa';
 
-const PortfolioCard = ({ title, description, imageUrl, projectLink, githubLink }) => {
+const PortfolioCard = ({ title, description, imageUrl, projectLink, githubLink, tags = [] }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <motion.div
-      className="backdrop-blur-md bg-white/10 dark:bg-white/5 border border-white/20 dark:border-white/10 rounded-2xl p-6 shadow-xl transition transform hover:scale-[1.02] hover:shadow-2xl duration-300"
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
       viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      whileHover={{ y: -10 }}
+      className="group relative bg-gray-900 rounded-2xl overflow-hidden border border-gray-800 hover:border-green-400/50 transition-all duration-300 shadow-xl hover:shadow-2xl hover:shadow-green-400/20"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
-      <img
-        className="w-full h-48 object-cover rounded-xl border border-white/20"
-        src={imageUrl}
-        alt={title}
-      />
-      <h2 className="mt-4 text-2xl font-bold text-white tracking-tight">{title}</h2>
-      <p className="mt-2 text-gray-300 text-sm leading-relaxed">{description}</p>
-      <div className="flex gap-4 mt-4">
-        <a
-          href={projectLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium transition"
+      {/* Image Container */}
+      <div className="relative h-56 overflow-hidden bg-gray-800">
+        <img
+          src={imageUrl}
+          alt={title}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+        />
+        
+        {/* Overlay on hover */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isHovered ? 1 : 0 }}
+          className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/80 to-transparent flex items-center justify-center gap-4"
         >
-          Ver Proyecto
-        </a>
-        <a
-          href={githubLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="px-4 py-2 rounded-lg bg-gray-700 hover:bg-gray-800 text-white font-medium transition"
-        >
-          Repositorio
-        </a>
+          <motion.a
+            href={projectLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            className="p-3 bg-green-400 text-gray-900 rounded-full hover:bg-green-500 transition-colors shadow-lg"
+            title="Ver proyecto"
+          >
+            <FaExternalLinkAlt size={20} />
+          </motion.a>
+          
+          {githubLink && (
+            <motion.a
+              href={githubLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              className="p-3 bg-gray-800 text-white rounded-full hover:bg-gray-700 transition-colors shadow-lg"
+              title="Ver código"
+            >
+              <FaGithub size={20} />
+            </motion.a>
+          )}
+        </motion.div>
+
+        {/* Project status badge */}
+        <div className="absolute top-4 right-4 px-3 py-1 bg-green-400/90 text-gray-900 text-xs font-bold rounded-full backdrop-blur-sm">
+          Completado
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="p-6 space-y-4">
+        <div>
+          <h3 className="text-xl font-bold text-white mb-2 group-hover:text-green-400 transition-colors">
+            {title}
+          </h3>
+          <p className="text-gray-400 text-sm leading-relaxed line-clamp-3">
+            {description}
+          </p>
+        </div>
+
+        {/* Tags */}
+        {tags.length > 0 && (
+          <div className="flex flex-wrap gap-2">
+            {tags.map((tag, index) => (
+              <span
+                key={index}
+                className="px-3 py-1 bg-gray-800 text-green-400 text-xs rounded-full border border-gray-700"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
+
+        {/* Action buttons */}
+        <div className="flex gap-3 pt-4 border-t border-gray-800">
+          <a
+            href={projectLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-green-400 text-gray-900 font-semibold rounded-lg hover:bg-green-500 transition-all duration-300 hover:scale-105"
+          >
+            <FaEye />
+            Ver Demo
+          </a>
+          {githubLink && (
+            <a
+              href={githubLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 px-4 py-2 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-700 transition-all duration-300 hover:scale-105 border border-gray-700"
+            >
+              <FaCode />
+              Código
+            </a>
+          )}
+        </div>
+      </div>
+
+      {/* Glow effect */}
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+        <div className="absolute -inset-1 bg-gradient-to-r from-green-400 to-emerald-500 rounded-2xl blur opacity-20"></div>
       </div>
     </motion.div>
   );
