@@ -2,120 +2,83 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaCode, FaEye } from 'react-icons/fa';
 
-const PortfolioCard = ({ title, description, imageUrl, projectLink, githubLink, tags = [] }) => {
+const PortfolioCard = ({ title, subtitle, description, imageUrl, projectLink, githubLink, tags = [] }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      whileHover={{ y: -10 }}
-      className="group relative bg-gray-900 rounded-2xl overflow-hidden border border-gray-800 hover:border-green-400/50 transition-all duration-300 shadow-xl hover:shadow-2xl hover:shadow-green-400/20"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      className="group flex flex-col dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden hover:border-slate-300 dark:border-slate-700 transition-colors duration-300"
     >
       {/* Image Container */}
-      <div className="relative h-56 overflow-hidden bg-gray-800">
+      <div className="relative h-48 overflow-hidden bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800">
         <img
           src={imageUrl}
           alt={title}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100 mix-blend-luminosity group-hover:mix-blend-normal"
         />
         
-        {/* Overlay on hover */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: isHovered ? 1 : 0 }}
-          className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/80 to-transparent flex items-center justify-center gap-4"
+        {/* Overlay buttons */}
+        <div
+          className={`absolute inset-0 bg-white dark:bg-slate-950/70 flex items-center justify-center gap-4 transition-opacity duration-300 backdrop-blur-[2px] ${isHovered ? 'opacity-100' : 'opacity-0'}`}
         >
-          <motion.a
-            href={projectLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            className="p-3 bg-green-400 text-gray-900 rounded-full hover:bg-green-500 transition-colors shadow-lg"
-            title="Ver proyecto"
-          >
-            <FaExternalLinkAlt size={20} />
-          </motion.a>
-          
-          {githubLink && (
-            <motion.a
-              href={githubLink}
+          {projectLink && (
+            <a
+              href={projectLink}
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              className="p-3 bg-gray-800 text-white rounded-full hover:bg-gray-700 transition-colors shadow-lg"
-              title="Ver código"
+              className="p-3 bg-slate-100 text-slate-950 rounded-full hover:bg-slate-300 transition-colors hover:scale-110"
+              title="Live Demo"
             >
-              <FaGithub size={20} />
-            </motion.a>
+              <FaExternalLinkAlt size={18} />
+            </a>
           )}
-        </motion.div>
-
-        {/* Project status badge */}
-        <div className="absolute top-4 right-4 px-3 py-1 bg-green-400/90 text-gray-900 text-xs font-bold rounded-full backdrop-blur-sm">
-          Completado
-        </div>
-      </div>
-
-      {/* Content */}
-      <div className="p-6 space-y-4">
-        <div>
-          <h3 className="text-xl font-bold text-white mb-2 group-hover:text-green-400 transition-colors">
-            {title}
-          </h3>
-          <p className="text-gray-400 text-sm leading-relaxed line-clamp-3">
-            {description}
-          </p>
-        </div>
-
-        {/* Tags */}
-        {tags.length > 0 && (
-          <div className="flex flex-wrap gap-2">
-            {tags.map((tag, index) => (
-              <span
-                key={index}
-                className="px-3 py-1 bg-gray-800 text-green-400 text-xs rounded-full border border-gray-700"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        )}
-
-        {/* Action buttons */}
-        <div className="flex gap-3 pt-4 border-t border-gray-800">
-          <a
-            href={projectLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-green-400 text-gray-900 font-semibold rounded-lg hover:bg-green-500 transition-all duration-300 hover:scale-105"
-          >
-            <FaEye />
-            Ver Demo
-          </a>
           {githubLink && (
             <a
               href={githubLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 px-4 py-2 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-700 transition-all duration-300 hover:scale-105 border border-gray-700"
+              className="p-3 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 rounded-full border border-slate-300 dark:border-slate-700 hover:bg-slate-200 dark:bg-slate-700 transition-colors hover:scale-110"
+              title="Source Code"
             >
-              <FaCode />
-              Código
+              <FaGithub size={18} />
             </a>
           )}
         </div>
       </div>
 
-      {/* Glow effect */}
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-        <div className="absolute -inset-1 bg-gradient-to-r from-green-400 to-emerald-500 rounded-2xl blur opacity-20"></div>
+      {/* Content */}
+      <div className="flex-1 p-6 flex flex-col gap-4">
+        <div>
+          <div className="flex justify-between items-start mb-2">
+            <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 tracking-tight">
+              {title}
+            </h3>
+          </div>
+          {subtitle && (
+             <h4 className="text-xs uppercase tracking-widest text-slate-500 dark:text-slate-500 font-semibold mb-3">{subtitle}</h4>
+          )}
+          <p className="text-slate-600 dark:text-slate-400 text-sm font-light leading-relaxed line-clamp-3">
+            {description}
+          </p>
+        </div>
+
+        {/* Tags */}
+        <div className="mt-auto pt-4 flex flex-wrap gap-2">
+          {tags.map((tag, index) => (
+            <span
+              key={index}
+              className="px-2.5 py-1 bg-white dark:bg-slate-950 text-slate-600 dark:text-slate-400 text-xs font-medium rounded-full border border-slate-200 dark:border-slate-800"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
       </div>
     </motion.div>
   );

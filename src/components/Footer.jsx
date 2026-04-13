@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaEnvelope, FaWhatsapp, FaHeart, FaArrowUp } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope, FaWhatsapp, FaArrowUp } from 'react-icons/fa';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -23,8 +23,8 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative bg-gradient-to-b from-gray-950 to-black text-white pt-16 pb-8">
-      <div className="max-w-7xl mx-auto px-6">
+    <footer className="relative bg-black text-slate-900 dark:text-slate-100 pt-20 pb-8 border-t border-slate-200 dark:border-slate-900">
+      <div className="max-w-6xl mx-auto px-6">
         {/* Main Content */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* About Column */}
@@ -35,19 +35,11 @@ const Footer = () => {
             className="space-y-4"
           >
             <div className="flex items-center gap-2">
-              <span className="text-3xl font-bold text-green-400">{'<'}</span>
-              <h3 className="text-2xl font-bold">Cristian Aguirre</h3>
-              <span className="text-3xl font-bold text-green-400">{'/>'}</span>
+              <h3 className="text-xl font-bold tracking-tighter">Cristian Aguirre Guadamuz.</h3>
             </div>
-            <p className="text-gray-400 leading-relaxed">
-              Desarrollador Full Stack apasionado por crear soluciones digitales que
-              generen impacto. Siempre aprendiendo y mejorando.
+            <p className="text-slate-500 dark:text-slate-500 font-light text-sm leading-relaxed max-w-sm">
+              Ingeniero en Sistemas de Información. Desarrollador de interfaces y arquitecturas escalables.
             </p>
-            <div className="flex items-center gap-2 text-sm text-gray-500">
-              <span>Hecho con</span>
-              <FaHeart className="text-red-500 animate-pulse" />
-              <span>en Costa Rica 🇨🇷</span>
-            </div>
           </motion.div>
 
           {/* Quick Links */}
@@ -56,17 +48,16 @@ const Footer = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="space-y-4"
+            className="space-y-4 md:px-8"
           >
-            <h3 className="text-xl font-bold mb-6">Navegación Rápida</h3>
+            <h4 className="text-xs uppercase tracking-widest text-slate-500 dark:text-slate-500 font-semibold mb-6">Navegación</h4>
             <ul className="space-y-3">
               {footerLinks.navigation.map((link, index) => (
                 <li key={index}>
                   <a
                     href={link.href}
-                    className="text-gray-400 hover:text-green-400 transition-colors flex items-center gap-2 group"
+                    className="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                   >
-                    <span className="w-0 h-0.5 bg-green-400 group-hover:w-4 transition-all duration-300"></span>
                     {link.label}
                   </a>
                 </li>
@@ -82,45 +73,40 @@ const Footer = () => {
             transition={{ delay: 0.2 }}
             className="space-y-4"
           >
-            <h3 className="text-xl font-bold mb-6">Conectemos</h3>
-            <p className="text-gray-400 mb-4">
-              ¿Tienes un proyecto en mente? ¡Hablemos!
-            </p>
+            <h4 className="text-xs uppercase tracking-widest text-slate-500 dark:text-slate-500 font-semibold mb-6">Social</h4>
             <div className="flex flex-wrap gap-4">
               {footerLinks.social.map((social, index) => (
-                <motion.a
+                <a
                   key={index}
                   href={social.href}
                   target={social.href.startsWith('http') ? '_blank' : undefined}
                   rel={social.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  whileHover={{ scale: 1.1, y: -3 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="p-3 bg-gray-900 rounded-lg hover:bg-green-400 hover:text-gray-900 transition-all duration-300 shadow-lg"
+                  className="p-2.5 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-md hover:bg-slate-100 dark:bg-slate-800 transition-colors duration-300 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400"
                   title={social.label}
                 >
-                  <span className="text-xl">{social.icon}</span>
-                </motion.a>
+                  <span className="text-base">{social.icon}</span>
+                </a>
               ))}
             </div>
           </motion.div>
         </div>
 
         {/* Divider */}
-        <div className="border-t border-gray-800 my-8"></div>
+        <div className="border-t border-slate-200 dark:border-slate-900 my-8"></div>
 
         {/* Bottom Bar */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="flex flex-col md:flex-row justify-between items-center gap-4"
+          className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium text-slate-600"
         >
-          <p className="text-gray-500 text-sm text-center md:text-left">
+          <p>
             © {new Date().getFullYear()} Cristian Aguirre Guadamuz. Todos los derechos reservados.
           </p>
           
-          <div className="flex items-center gap-4 text-sm text-gray-500">
-            <span>Hecho con React + Vite + TailwindCSS</span>
+          <div className="flex items-center gap-4">
+            <span>Costa Rica 🇨🇷</span>
           </div>
         </motion.div>
       </div>
@@ -128,18 +114,16 @@ const Footer = () => {
       {/* Scroll to Top Button */}
       <motion.button
         onClick={scrollToTop}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        className="fixed bottom-8 right-8 p-4 bg-green-400 text-gray-900 rounded-full shadow-lg hover:shadow-green-400/50 transition-all duration-300 z-50"
-        initial={{ opacity: 0, y: 100 }}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        className="fixed bottom-8 right-8 p-3 bg-slate-100 text-slate-950 rounded-md shadow-lg shadow-black/50 hover:bg-slate-300 transition-colors duration-300 z-50 border border-slate-200"
+        initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1 }}
       >
-        <FaArrowUp size={20} />
+        <FaArrowUp size={16} />
       </motion.button>
 
-      {/* Decorative Elements */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-400 via-emerald-500 to-green-400"></div>
     </footer>
   );
 };

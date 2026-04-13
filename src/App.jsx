@@ -1,4 +1,5 @@
 import React from 'react';
+import { ThemeProvider } from 'next-themes';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
@@ -10,16 +11,18 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="scroll-smooth">
-      <Navbar />
-      <HeroSection />
-      <AboutSection />
-      <SkillsSection />
-      <ExperienceTimeline />
-      <RecentWorks />
-      <ContactSection />
-      <Footer />
-    </div>
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+      <div className="scroll-smooth bg-gray-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300 min-h-screen">
+        <Navbar />
+        <HeroSection />
+        <AboutSection />
+        <SkillsSection />
+        <ExperienceTimeline />
+        <RecentWorks />
+        <ContactSection />
+        <Footer />
+      </div>
+    </ThemeProvider>
   );
 }
 

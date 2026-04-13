@@ -1,62 +1,58 @@
 import React from 'react';
 import PortfolioCard from './PortfolioCard';
 import { motion } from 'framer-motion';
-import { fadeUp, staggerContainer } from '../animations/fadeVariants';
-
 
 const projects = [
     {
-      title: 'GEIGV - Gestión Vial Municipal',
+      title: 'GEIGV',
+      subtitle: 'Gestión Vial Municipal',
       description:
-        'Sistema de Gestión de Infraestructura y Gestión Vial desarrollado para la Municipalidad de Santa Cruz. Permite el registro, seguimiento y administración de proyectos viales, mantenimiento de carreteras y control de la infraestructura municipal.',
+        'Sistema de Gestión de Infraestructura desarrollado para la Municipalidad. Permite el control riguroso de proyectos viales, mantenimiento de carreteras y administración de infraestructura pública.',
       imageUrl: 'image.png',
       projectLink: 'https://github.com/CristianAG13/GEIGV-MuniSC-frontend',
       githubLink: 'https://github.com/CristianAG13/GEIGV-MuniSC-frontend',
-      tags: ['React', 'Node.js', 'PostgreSQL', 'Gestión Pública'],
+      tags: ['React', 'Node.js', 'PostgreSQL'],
     },
     {
       title: 'SIMADLSC',
+      subtitle: 'Plataforma Frontend',
       description:
-        'Sistema completo de gestión académica desarrollado para el Liceo de Santa Cruz. Incluye módulos de matrícula, asistencia, horarios y gestión disciplinaria. Proyecto realizado en equipo como donación a la institución.',
+        'Interzaz de sistema académico completo para gestión educativa. Incluye módulos de matrícula, asistencia, horarios y gestión disciplinaria. Arquitectura escalable y orientada a UX/UI modular.',
       imageUrl: 'simadlsc.jpg',
       projectLink: 'https://simadlsc.vercel.app',
       githubLink: 'https://github.com/CristianAG13/SIMADLSC',
-      tags: ['React', 'TailwindCSS', 'TypeScript', 'Full Stack'],
-    },
-    {
-      title: 'SIMADLSC-backend',
-      description: 'Backend robusto del SIMADLSC desarrollado con NestJS y TypeORM. API REST para gestión de matrículas, asistencias, eventos académicos y horarios. Implementa autenticación JWT y arquitectura modular escalable.',
-      imageUrl: 'https://placehold.co/600x300?text=SIMADLSC-backend',
-      projectLink: 'https://simadlsc.vercel.app',
-      githubLink: 'https://github.com/CristianAG13/SIMADLSC-backend',
-      tags: ['NestJS', 'TypeORM', 'MySQL', 'JWT', 'REST API'],
+      tags: ['React', 'TailwindCSS', 'TypeScript'],
     },
   ];
-  
 
 const RecentWorks = () => {
   return (
-    <section id="projects" className="py-16 px-6 bg-gray-950 text-white">
+    <section id="projects" className="py-24 px-6 bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-900 border-slate-200 dark:border-slate-800/50 text-slate-900 dark:text-slate-100">
       <div className="max-w-6xl mx-auto">
-        <motion.h2
-          className="text-4xl font-bold mb-12 text-center border-b-2 border-green-400 inline-block pb-2"
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          className="mb-16 text-center"
         >
-          Últimos Proyectos
-        </motion.h2>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
+            Proyectos Destacados
+          </h2>
+          <div className="w-16 h-px bg-slate-200 dark:bg-slate-700 mx-auto mb-6"></div>
+          <p className="text-slate-600 dark:text-slate-400 text-lg font-light max-w-2xl mx-auto">
+            Una selección de soluciones de software en las que he participado, abarcando desde sistemas de gestión gubernamental hasta plataformas educativas de alto impacto.
+          </p>
+        </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           initial="hidden"
           whileInView="visible"
           variants={{
             hidden: {},
             visible: {
               transition: {
-                staggerChildren: 0.2
+                staggerChildren: 0.15
               }
             }
           }}
